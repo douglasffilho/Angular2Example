@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1) {
+System.register(['angular2/core', '../../services/HomeService/HomeService'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,28 +8,33 @@ System.register(['angular2/core'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var AppComponent;
+    var core_1, HomeService_1;
+    var HomeController;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (HomeService_1_1) {
+                HomeService_1 = HomeService_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            HomeController = (function () {
+                function HomeController(homeService) {
+                    this.homeService = homeService;
                 }
-                AppComponent = __decorate([
+                HomeController = __decorate([
                     core_1.Component({
                         selector: 'meu-app',
-                        template: '<h1>Meu primeiro app com o Angular 2!!!</h1>'
+                        templateUrl: 'app/views/HomeView/HomeView.html',
+                        providers: [HomeService_1.HomeService]
                     }), 
-                    __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                    __metadata('design:paramtypes', [HomeService_1.HomeService])
+                ], HomeController);
+                return HomeController;
             })();
-            exports_1("AppComponent", AppComponent);
+            exports_1("HomeController", HomeController);
         }
     }
 });
-//# sourceMappingURL=app-component.js.map
+//# sourceMappingURL=HomeController.js.map
